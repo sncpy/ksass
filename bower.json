@@ -1,0 +1,28 @@
+{
+    "name": "ksass",
+    "version": "0.0.0",
+    "authors": ["Maximiliano Báez González <maximiliano.baez@konecta.com.py>"],
+    "description": "Template SASS/CSS para aplicaciones de konecta",
+    "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+    "dependencies": {
+        "fontawesome": "4.*",
+        "bootstrap-sass": "3.* ",
+        "bootstrap-toggle": "~2.2.0",
+        "angular": "1.5.*",
+        "angular-route": "~1.4.7",
+        "angular-aria": "~1.4.7",
+        "jquery": "2.2.4",
+        "jquery-ui": "*",
+        "highcharts": "^5.0.3"
+    },
+    "resolutions": {
+        "angular": "1.5.*",
+        "jquery": "2.2.4"
+    }
+}
