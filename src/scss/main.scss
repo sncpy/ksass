@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+/*!
+* Ksass - Template SASS/CSS para aplicaciones de konecta
+*/
+
+@import "variables";
+@import "../vendors/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../vendors/fontawesome/scss/font-awesome";
+//estilos propios
+@import "switch";
+@import "home";
+@import "header";
+@import "body";
+@import "form";
+@import "button";
+@import "tabs";
+@import "breadcrumbs";
+@import "fonts";

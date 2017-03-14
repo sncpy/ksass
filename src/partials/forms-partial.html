@@ -1,0 +1,191 @@
+<h1>Formularios</h1>
+<hr/>
+<h2>Formulario Simple</h2>
+<hr/>
+<div>
+    <section class="form-wrapper">
+        <div class="top-block">
+            <h2 class="title-top">Formulario de Prueba</h2>
+            <p>A través de esta sección usted podrá cargar una nueva Rendición de Cuentas Mensual</p>
+        </div>
+
+        <form class="wrapper form-horizontal" role="form">
+            <div class="form-group">
+                <label for="buscar_item_codigo" class="col-sm-3 control-label">Campo Select:</label>
+                <div class="col-sm-8">
+                    <select class="form-control" id="buscar_item_codigo">
+                        <option>43211</option>
+                        <option>43212</option>
+                        <option selected="">43213</option>
+                        <option>43214</option>
+                    </select>
+                    <p class="help-block">Este campo sirve para bla bla bla .</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="buscar_item_codigo" class="col-sm-3 control-label">Campo Input:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="buscar_item_codigo">
+                    <p class="help-block">Este campo sirve para bla bla bla .</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="buscar_item_codigo" class="col-sm-3 control-label">Campo Texarea:</label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" id="buscar_item_codigo"></textarea>
+                    <p class="help-block">Este campo sirve para bla bla bla .</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">
+                    Campo checkbox: {{slider.disabled}}
+                </label>
+                <div class="col-md-8">
+                    <label class="switch">
+                        <input type="checkbox" ng-model="slider.disabled">
+                        <div class="slider round"></div>
+                    </label>
+                </div>
+            </div>
+        </form>
+
+        <div class="form-footer">
+            <a class="btn btn-default">
+                <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
+            </a>
+            <div class="btn-divider">&nbsp;</div>
+            <a class="btn btn-default">Guardar</a>
+        </div>
+
+    </section>
+</div>
+<h2>Formulario con detalles</h2>
+<div>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a href="#cabecera" role="tab" data-toggle="tab">Cabecera</a>
+        </li>
+        <li role="presentation">
+            <a href="#detalle" role="tab" data-toggle="tab">Detalle</a>
+        </li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="cabecera">
+            <section class="form-wrapper">
+                <div class="top-block">
+                    <h2 class="title-top">Formulario de Prueba</h2>
+                    <p>A través de esta sección usted podrá cargar una nueva Rendición de Cuentas Mensual</p>
+                </div>
+
+                <form class="wrapper form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="buscar_item_codigo" class="col-sm-3 control-label">Campo Select:</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="buscar_item_codigo">
+                                <option>43211</option>
+                                <option>43212</option>
+                                <option selected="">43213</option>
+                                <option>43214</option>
+                            </select>
+                            <p class="help-block">Este campo sirve para bla bla bla .</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="buscar_item_codigo" class="col-sm-3 control-label">Campo Input:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="buscar_item_codigo">
+                            <p class="help-block">Este campo sirve para bla bla bla .</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="buscar_item_codigo" class="col-sm-3 control-label">Campo Texarea:</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" id="buscar_item_codigo"></textarea>
+                            <p class="help-block">Este campo sirve para bla bla bla .</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <a class="btn btn-default">Guardar</a>
+                </form>
+            </section>
+
+        </div>
+        <div role="tabpanel" class="tab-pane" id="detalle">
+            <section class="form-wrapper">
+                <div class="top-block">
+                    <h2 class="title-top">Formulario de Prueba</h2>
+                    <p>A través de esta sección usted podrá cargar una nueva Rendición de Cuentas Mensual</p>
+                </div>
+                <div class="wrapper">
+                    <div class="table-responsive ">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Table heading</th>
+                                    <th>Table heading</th>
+                                    <th>Table heading</th>
+                                    <th>Table heading</th>
+                                    <th>Table heading</th>
+                                    <th>Table heading</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                    <td>Table cell</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <nav aria-label="...">
+                        <ul class="pagination">
+                            <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="tab-footer ">
+        <a class="btn btn-default">
+            <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
+        </a>
+    </div>
+</div>

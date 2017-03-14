@@ -1,0 +1,44 @@
+.form-wrapper {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid $pane-gray-border;
+    color: $text-color;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    .top-block {
+        .title-top {
+            margin: 0px;
+            font-size: 18px;
+            padding: 10px 15px;
+            background: $pane-bg;
+            color: $pane-color;
+        }
+        p {
+            padding: 10px;
+        }
+    }
+    .wrapper {
+        background: $pane-gray-bg;
+        padding: 25px;
+        border: 1px solid $pane-gray-border;
+        color: $pane-gray-color;
+        border-radius: 4px;
+        label.control-label {
+            text-align: left;
+            font-weight: bold;
+        }
+        .table {
+            color: $text-color;
+            tr {
+                //  background: white;
+            }
+        }
+    }
+    .form-footer {
+        padding: 15px 0px 0px 0px;
+        display: inline-flex;
+        .btn {
+            margin-right: 5px;
+        }
+    }
+}

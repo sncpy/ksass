@@ -1,0 +1,49 @@
+<!DOCTYPE html >
+<html ng-app="ksass">
+
+<head>
+    <title>ksass</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" media="screen" href="/css/main.css?version={{VERSION}}">
+</head>
+
+<body>
+    <!-- header -->
+
+    <header id="header" class="container-fluid" ng-include="'partials/static/header-partial.html'">
+    </header>
+    <!-- End header-->
+
+    <section class="page-wrapper ">
+        <div class="row">
+            <div class="col-sm-12" ng-view>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <loading></loading>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </div>
+        </div>
+        <br/>
+        <br/>
+    </section>
+
+    <!-- footer -->
+
+    <footer id="footer" class="footer" ng-include="'partials/static/footer-partial.html'">
+    </footer>
+
+    <!-- end footer -->
+    <script type="text/javascript" src="/libs/app.min.js?version={{VERSION}}"></script>
+</body>

@@ -1,0 +1,44 @@
+.btn-divider {
+    border-right: 1px solid $pane-gray-border;
+    border-left: 1px solid white;
+    //margin-left: 5px;
+    margin-right: 8.2px;
+    height: 36px;
+    display: inline-block;
+    margin-bottom: -15px;
+}
+.btn {
+    background: none;
+    border: 1px solid $pane-gray-border;
+    .fa {
+        font-size: 0.7em;
+    }
+    &.btn-danger {
+        color: $brand-danger;
+        border-color: $brand-danger;
+        &:hover {
+            color: $text-invert-color;
+        }
+    }
+    &.btn-success {
+        color: $brand-success;
+        border-color: $brand-success;
+        &:hover {
+            color: $text-invert-color;
+        }
+    }
+    &.btn-info {
+        color: $brand-info;
+        border-color: $brand-info;
+        &:hover {
+            color: $text-invert-color;
+        }
+    }
+    &.btn-warning {
+        color: $brand-warning;
+        border-color: $brand-warning;
+        &:hover {
+            color: $text-invert-color;
+        }
+    }
+}

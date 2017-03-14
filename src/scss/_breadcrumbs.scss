@@ -1,0 +1,117 @@
+ul.wizard-breadcrumbs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: auto;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+    li {
+        float: left;
+        margin: 0 0em 4px 1.3em;
+        a {
+            background: $pane-gray-border;
+            float: left;
+            text-decoration: none;
+            color: $text-color;
+            position: relative;
+            cursor: pointer;
+            margin: 0;
+            padding: 0 2em 0 2em;
+            height: 46px;
+            line-height: 46px;
+            font-size: 16px;
+            .badge {
+                margin-top: -3px;
+                margin-right: 3px;
+            }
+            &:hover {
+                color: $text-color;
+            }
+            &:not(.disable):hover {
+                opacity: 0.7;
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0; //50%;
+                //margin-top: -20px;
+                border-width: 23px 0px 23px 15px;
+                border-style: solid;
+                border-color: $pane-gray-border $pane-gray-border $pane-gray-border transparent;
+                left: -14px;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                margin-top: -1.5em;
+                border-top: 1.5em solid transparent;
+                border-bottom: 1.5em solid transparent;
+                border-left: 1em solid $pane-gray-border;
+                right: -1em;
+            }
+        }
+    }
+    .current,
+    .current:hover {
+        font-weight: bold;
+        background: none;
+    }
+    .current::after,
+    .current::before {
+        content: normal;
+    }
+    li a.disable {
+        cursor: not-allowed;
+    }
+    /*Primer elemento del breadcrums*/
+    li:first-child a {
+        background-color: $pane-gray-border;
+        color: $text-color;
+    }
+    li:first-child a::before {
+        border-color: $pane-gray-border $pane-gray-border $pane-gray-border $pane-gray-border;
+    }
+    li.active {
+        a {
+            color: $text-invert-color;
+            background: $pane-bg;
+            .badge {
+                background: $text-invert-color;
+                color: $pane-bg;
+            }
+            &::before {
+                border-color: $pane-bg $pane-bg $pane-bg transparent;
+            }
+            &::after {
+                border-left: 1em solid $pane-bg;
+            }
+        }
+    }
+}
+@media(max-width:768px) {
+    //@media only screen and (min-width: 220px) and (max-width: 540px) {
+    ul.wizard-breadcrumbs {
+        height: auto !important;
+        li {
+            width: 95%;
+            a {
+                width: 95%;
+                margin-top: 1px;
+                &::before {
+                    border-color: $pane-gray-border $pane-gray-border $pane-gray-border $pane-gray-border;
+                }
+            }
+        }
+        li.active {
+            a {
+                color: $text-invert-color;
+                background: $pane-bg;
+                &::before {
+                    border-color: $pane-bg $pane-bg $pane-bg $pane-bg;
+                }
+            }
+        }
+    }
+}
