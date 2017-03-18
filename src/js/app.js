@@ -8,8 +8,7 @@ var app = angular.module('ksass', ['ngRoute', 'ngAria']);
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: '/partials/home-partial.html',
-            controller: 'HomeCtrl'
+            templateUrl: '/partials/home-partial.html'
         });
 
     if (window.history && window.history.pushState) {

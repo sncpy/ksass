@@ -46,7 +46,7 @@ module.exports = function (grunt) {
                     sourcemap: false
                 },
                 files: {
-                    'dist/css/main.css': 'src/scss/main.scss'
+                    'dist/css/main.css': 'src/scss/_ksass.scss'
                 }
             }
         },
