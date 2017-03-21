@@ -8,10 +8,10 @@
     margin-bottom: -15px;
 }
 .btn {
-    background: none;
+    background: white;
     border: 1px solid $pane-gray-border;
     .fa {
-        font-size: 0.7em;
+        //font-size: 0.7em;
     }
     &.btn-danger {
         color: $brand-danger;
