@@ -46,7 +46,7 @@ module.exports = function (grunt) {
                     sourcemap: false
                 },
                 files: {
-                    'dist/css/main.css': 'src/scss/_ksass.scss'
+                    'dist/css/main.css': 'src/scss/main.scss'
                 }
             }
         },
@@ -205,7 +205,7 @@ module.exports = function (grunt) {
                     livereload: true
                 },
                 files: ['src/**/*.js'],
-                tasks: ['concat', 'string-replace']
+                tasks: ['concat', 'uglify', 'string-replace']
             },
             sass: {
                 options: {
