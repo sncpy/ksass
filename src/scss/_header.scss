@@ -90,4 +90,45 @@ ul.alert-dropdown {
     &>li>ul>li>a:hover {
         color: $sidebar-color;
     }
+    li {
+        .fa {
+            font-size: 20px;
+            padding-right: 35px;
+        }
+    }
+    .btn.action {
+        position: fixed;
+        bottom: 15px;
+        color: white;
+        background: transparent !important;
+        font-weight: bold;
+        left: 178px;
+    }
+}
+//para la vista reducida
+.compress {
+    &.page-wrapper {
+        padding-left: 65px;
+    }
+    &.side-nav {
+        width: 50px;
+    }
+    &.action {
+        left: 7.5px !important;
+        transform: scale(-1, 1);
+    }
+}
+@media(max-width:768px) {
+    .compress {
+        &.page-wrapper {
+            padding-left: 15px;
+            padding-right: 15px
+        }
+        &.side-nav {
+            width: auto;
+        }
+        &.action {
+            display: none;
+        }
+    }
 }
