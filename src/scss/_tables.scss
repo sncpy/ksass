@@ -7,4 +7,10 @@
             background: white;
         }
     }
+    a[href]{
+        text-decoration:underline;
+        &:hover{
+            color: $brand-primary;
+        }
+    }
 }
