@@ -10,8 +10,12 @@
 .btn {
     background: white;
     border: 1px solid $pane-gray-border;
-    .fa {
-        //font-size: 0.7em;
+    &.btn-primary {
+        color: $brand-primary;
+        border-color: $brand-primary;
+        &:hover {
+            color: $text-invert-color;
+        }
     }
     &.btn-danger {
         color: $brand-danger;
