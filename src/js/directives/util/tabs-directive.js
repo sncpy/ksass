@@ -11,7 +11,9 @@ app.directive('navTabs', [function () {
                 $(element).find('a').click(function (e) {
                     e.preventDefault();
                     $(this).tab('show');
-                })
+                });
+                //se fuerza el click.
+                $(element).find('a').first().click();
             }
         }
     }
