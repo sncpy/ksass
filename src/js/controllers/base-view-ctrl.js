@@ -34,7 +34,7 @@ app.controller('BaseViewCtrl', ['$scope', '$routeParams', '$timeout',
                 .success(function (data) {
                     $scope.recurso = data;
                 }).error(function (data, code) {
-                    window.alert("No se pudo realizar la operación");
+                    Message.error("No se pudo realizar la operación");
                 });
         };
 

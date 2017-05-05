@@ -56,7 +56,7 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout',
             this.service.crear($scope.recurso)
                 .success(this.guardarSuccess)
                 .error(function (data, code) {
-                    window.alert("No se pudo realizar la operación");
+                    Message.error("No se pudo realizar la operación");
                 });
         };
 
@@ -67,7 +67,7 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout',
             return this.service.actualizar($scope.recurso)
                 .success(this.guardarSuccess)
                 .error(function (data, code) {
-                    window.alert("No se pudo realizar la operación");
+                    Message.error("No se pudo realizar la operación");
                 });
         };
 
@@ -76,7 +76,7 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout',
          * @param {object} data la respuesta de la petición
          */
         $scope.guardarSuccess = function (data) {
-            window.alert("El registro se ha registrado exitosamente.");
+            Message.ok("El registro se ha registrado exitosamente.");
             window.location = "#" + this.uri + data.id + "/ver";
         };
 
@@ -89,7 +89,7 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout',
                 .success(function (data) {
                     $scope.recurso = data;
                 }).error(function (data, code) {
-                    window.alert("No se pudo realizar la operación");
+                    Message.error("No se pudo realizar la operación");
                 });
         };
 
