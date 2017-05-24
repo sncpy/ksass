@@ -77,7 +77,7 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout',
          */
         $scope.guardarSuccess = function (data) {
             Message.ok("El registro se ha registrado exitosamente.");
-            window.location = "#" + this.uri + data.id + "/ver";
+            window.location = "#" + $scope.uri + data.id + "/ver";
         };
 
         /**
