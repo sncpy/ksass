@@ -3,6 +3,23 @@
  * Directiva que se encarga de dar vida al sidebar de lateral de la aplicación
  */
 app.directive('sideNav', [function () {
+        /**
+         * Se encarga de seleccionar el enlace que corresponde a la página por que se esta 
+         * viendo actualmente
+         * @param {DOM} el elemento donde se renderiza la directiva.
+         */
+        function selectLink(el) {
+            var path = window.location.pathname;
+            var hash = window.location.hash;
+
+            function select(el, target) {
+                $(el).find('li [href="' + target + '"]').parent().addClass("active");
+            }
+            $(el).find('li.active').removeClass("active");
+            select(el, path);
+            select(el, hash);
+        }
+
         return {
             restrict: 'C',
             scope: {},
@@ -28,12 +45,10 @@ app.directive('sideNav', [function () {
                         $page.addClass(clazz);
                         $(element).addClass(clazz);
                         $(this).addClass(clazz);
-                        localStorage.setItem("sidebar", clazz);
                     } else {
                         $page.removeClass(clazz);
                         $(element).removeClass(clazz);
                         $(this).removeClass(clazz);
-                        localStorage.removeItem("sidebar");
                     }
                 });
 
@@ -41,7 +56,7 @@ app.directive('sideNav', [function () {
                  * Si el usuario realizó colapsó o comprimió el sidebar se recupera
                  * la configuración del storage del browser, para recordar su seleccion.
                  */
-                var state = localStorage.getItem("sidebar");
+                var state = "compress";
                 if (state) {
                     $page.addClass(state);
                     $(element).addClass(state);
@@ -51,6 +66,8 @@ app.directive('sideNav', [function () {
                     $(element).removeClass(clazz);
                     $(element).find(".btn").removeClass(clazz);
                 }
+
+                selectLink(element);
             }
         }
     }
