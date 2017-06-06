@@ -51,6 +51,8 @@ app.controller('BaseListCtrl', ['$scope',
          */
         $scope.getResource = function (params, paramsObj) {
             paramsObj.sortOrder = paramsObj.sortOrder == 'dsc' ? "DESC" : "ASC";
+            if (paramsObj.filters)
+                $scope.deleteUndefinedValues(paramsObj.filters);
             return this.service.listar(paramsObj)
                 .then(function (response) {
                     $scope.config.rows = response.data.rows;
@@ -58,6 +60,18 @@ app.controller('BaseListCtrl', ['$scope',
                     $scope.config.pagination.pages = Math.ceil(response.data.total / $scope.config.pagination.count);
                     return $scope.config;
                 });
+        };
+
+        /**
+        * Elimina los elementos del objeto que son nulos
+        * @function
+        */
+        $scope.deleteUndefinedValues = function (object) {
+            for (var key in object){
+                if (!object[key]) {
+                    delete object[key];
+                }
+            }
         };
 
 
