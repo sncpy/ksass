@@ -132,3 +132,18 @@ ul.alert-dropdown {
         }
     }
 }
+.navbar-default {
+    .navbar-brand {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 75%;
+    }
+}
+.side-nav {
+    .divider {
+        border-top: 1px solid $pane-border;
+        border-bottom: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+}
