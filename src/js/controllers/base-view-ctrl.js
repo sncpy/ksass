@@ -23,13 +23,11 @@ app.controller('BaseViewCtrl', ['$scope', '$routeParams', '$timeout',
          */
         $scope.recurso = {};
 
-
         /**
          * Se encarga de obtener los datos del recurso siempre y cuando la pantalla esté en modo
          * de edición.
          */
         $scope.getRecurso = function () {
-            console.log($scope.service);
             $scope.service.obtener($routeParams)
                 .success(function (data) {
                     $scope.recurso = data;
@@ -43,9 +41,7 @@ app.controller('BaseViewCtrl', ['$scope', '$routeParams', '$timeout',
          * @constructor
          */
         (function initialize() {
-
             $scope.getRecurso();
-
         })();
     }
 ]);
