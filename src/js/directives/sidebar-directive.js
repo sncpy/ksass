@@ -3,37 +3,52 @@
  * Directiva que se encarga de dar vida al sidebar de lateral de la aplicación
  */
 app.directive('sideNav', [function () {
+
         /**
-         * Se encarga de seleccionar el enlace que corresponde a la página por que se esta 
+         * Se encarga de seleccionar el enlace que corresponde a la página por que se esta
          * viendo actualmente
          * @param {DOM} el elemento donde se renderiza la directiva.
          */
         function selectLink(el) {
             var path = window.location.pathname;
             var hash = window.location.hash;
-
+            /**
+             * Se encarga de seleccionar el elemento del sidebar que se
+             * esta viendo.
+             */
             function select(el, target) {
-                $(el).find('li [href="' + target + '"]').parent().addClass("active");
+                $(el).find('li a[href="' + target + '"]').parent()
+                .each(function(){
+                    $(el).find('li.active').removeClass("active");
+                    $(this).addClass("active");
+                });
             }
-            $(el).find('li.active').removeClass("active");
+
             select(el, path);
             select(el, hash);
         }
 
+        /*
+         * Por cada elemento del sidebar seleccionado, se le añade
+         * el class active para denotar su selección
+         */
+        function bindEvents(element){
+            $(element).find('li').click(function (e) {
+                $(element).find("li.active").removeClass("active");
+                $(this).addClass("active");
+            });
+        }
+
         return {
             restrict: 'C',
-            scope: {},
+            scope: {
+                model: '='
+            },
             link: function (scope, element) {
                 var $page = $(".page-wrapper");
                 var clazz = "compress";
-                /*
-                 * Por cada elemento del sidebar seleccionado, se le añade
-                 * el class active para denotar su selección
-                 */
-                $(element).find('li').click(function (e) {
-                    $(element).find("li.active").removeClass("active");
-                    $(this).addClass("active")
-                });
+
+
 
                 /*
                  * Si se clickea el boton del sidebar, se colapsa o comprime
@@ -67,7 +82,11 @@ app.directive('sideNav', [function () {
                     $(element).find(".btn").removeClass(clazz);
                 }
 
-                selectLink(element);
+
+                scope.$watch('model', function () {
+                    bindEvents(element)
+                    selectLink(element);
+                });
             }
         }
     }
