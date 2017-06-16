@@ -5,8 +5,8 @@
  * @name gfd.controller#LoteFormCtrl
  * @author <a href = "mailto:maximiliano.baez@konecta.com.py"> Maximiliano Báez </a>
  */
-app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout',
-    function ($scope, $routeParams, $timeout) {
+app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout', '$location',
+    function ($scope, $routeParams, $timeout, $location) {
 
         /**
          * Url base del formulario
@@ -54,8 +54,8 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout',
          */
         $scope.crearRecurso = function () {
             this.service.crear($scope.recurso)
-                .success(this.guardarSuccess)
-                .error(function (data, code) {
+                .then(this.guardarSuccess
+                , function (data, code) {
                     Message.error("No se pudo realizar la operación");
                 });
         };
@@ -65,8 +65,8 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout',
          */
         $scope.editarRecurso = function () {
             return this.service.actualizar($scope.recurso)
-                .success(this.guardarSuccess)
-                .error(function (data, code) {
+                .then(this.guardarSuccess
+                , function (data, code) {
                     Message.error("No se pudo realizar la operación");
                 });
         };
@@ -75,9 +75,9 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout',
          * Se encarga de manejar el success de las peticiones
          * @param {object} data la respuesta de la petición
          */
-        $scope.guardarSuccess = function (data) {
+        $scope.guardarSuccess = function (response) {
             Message.ok("El registro se ha registrado exitosamente.");
-            window.location = "#" + $scope.uri + data.id + "/ver";
+            $location.url($scope.uri + response.data.id + "/ver");
         };
 
         /**
@@ -86,9 +86,9 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout',
          */
         $scope.getRecurso = function () {
             this.service.obtener($routeParams)
-                .success(function (data) {
-                    $scope.recurso = data;
-                }).error(function (data, code) {
+                .then(function (response) {
+                    $scope.recurso = response.data;
+                },function (data, code) {
                     Message.error("No se pudo realizar la operación");
                 });
         };

@@ -45,6 +45,18 @@ app.controller('BaseListCtrl', ['$scope',
             "ssortBy": $scope.init.sortBy,
             "sortOrder": $scope.init.sortOrder
         };
+        /**
+        * Elimina los elementos del objeto que son nulos
+        * @function
+        */
+        function deleteUndefinedValues(object) {
+            for (var key in object){
+                if (!object[key]) {
+                    delete object[key];
+                }
+            }
+        };
+
 
         /**
          * Se encarga de recuperar la lista paginada de los datos.
@@ -54,7 +66,7 @@ app.controller('BaseListCtrl', ['$scope',
             paramsObj.sortOrder = paramsObj.sortOrder == 'dsc' ? "DESC" : "ASC";
             $scope.loading = true;
             if (paramsObj.filters)
-                $scope.deleteUndefinedValues(paramsObj.filters);
+                deleteUndefinedValues(paramsObj.filters);
             return this.service.listar(paramsObj)
                 .then(function (response) {
                     $scope.loading = false;
@@ -65,18 +77,6 @@ app.controller('BaseListCtrl', ['$scope',
                 }, function(){
                     $scope.loading = null;
                 });
-        };
-
-        /**
-        * Elimina los elementos del objeto que son nulos
-        * @function
-        */
-        $scope.deleteUndefinedValues = function (object) {
-            for (var key in object){
-                if (!object[key]) {
-                    delete object[key];
-                }
-            }
         };
 
 

@@ -29,9 +29,9 @@ app.controller('BaseViewCtrl', ['$scope', '$routeParams', '$timeout',
          */
         $scope.getRecurso = function () {
             $scope.service.obtener($routeParams)
-                .success(function (data) {
-                    $scope.recurso = data;
-                }).error(function (data, code) {
+            .then(function (response) {
+                    $scope.recurso = response.data;
+                },function (data, code) {
                     Message.error("No se pudo realizar la operación");
                 });
         };
