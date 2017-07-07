@@ -45,11 +45,12 @@ app.controller('BaseListCtrl', ['$scope',
             "ssortBy": $scope.init.sortBy,
             "sortOrder": $scope.init.sortOrder
         };
+
         /**
         * Elimina los elementos del objeto que son nulos
         * @function
         */
-        function deleteUndefinedValues(object) {
+        $scope.deleteUndefinedValues = function deleteUndefinedValues(object) {
             for (var key in object){
                 if (!object[key]) {
                     delete object[key];
