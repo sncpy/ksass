@@ -88,7 +88,13 @@ ul.wizard-breadcrumbs {
                 border-left: 1em solid $pane-bg;
             }
         }
+        &:first-child{
+            a::before {
+                border-color: $pane-bg $pane-bg $pane-bg $pane-bg;
+            }
+        }
     }
+
 }
 @media(max-width:768px) {
     //@media only screen and (min-width: 220px) and (max-width: 540px) {
