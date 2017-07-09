@@ -58,6 +58,19 @@ app.controller('BaseListCtrl', ['$scope',
             }
         };
 
+        /*
+         * Se encarga de eliminar el recurso
+         * @function
+         */
+        $scope.eliminar = function (recurso) {
+            if (window.confirm("¿Está seguro de eliminar el recurso?"))
+                service.eliminar(recurso)
+                .then(function (data) {
+                    $scope.limpiar();
+                }).catch(function (data, code) {
+                    Message.error("No se pudo realizar la operación");
+                });
+        };
 
         /**
          * Se encarga de recuperar la lista paginada de los datos.

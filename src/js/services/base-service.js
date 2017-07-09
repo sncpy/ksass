@@ -42,6 +42,14 @@ app.service('BaseService', ['$http', function ($http) {
             return $http.get(App.REST_BASE + this.recurso + params.id, {
                 params: params
             });
+        },
+
+        /**
+         * Realiza un delete para borrar un registro específico por su id.
+         * @function
+         */
+        eliminar: function (params) {
+            return $http.delete(App.REST_BASE + this.recurso + params.id);
         }
     }
 }]);
