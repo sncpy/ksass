@@ -2,7 +2,7 @@ var App = {
     version: "{{VERSION}}"
 };
 
-var app = angular.module('ksass', ['ngRoute', 'ngAria']);
+var app = angular.module('ksass', ['ngRoute']);
 
 //
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {

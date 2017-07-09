@@ -118,11 +118,9 @@ module.exports = function (grunt) {
             libs: {
                 src: [
                 'src/vendors/jquery/dist/jquery.min.js',
-                "src/vendors/jquery-ui/jquery-ui.js",
                 'src/vendors/bootstrap-sass/assets/javascripts/bootstrap.min.js',
                 'src/vendors/angular/angular.min.js',
                 'src/vendors/angular-route/angular-route.min.js',
-                "src/vendors/angular-aria/angular-aria.js",
                 // librerias utilitarias para generar gráficos
                 "src/vendors/highcharts/highstock.js",
                 //app.js
