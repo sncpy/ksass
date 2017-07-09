@@ -11,18 +11,18 @@
     "tests"
   ],
     "dependencies": {
-        "fontawesome": "4.*",
-        "bootstrap-sass": "3.* ",
-        "bootstrap-toggle": "~2.2.0",
-        "angular": "1.5.*",
-        "angular-route": "~1.4.7",
+        "angular": "1.6.*",
+        "angular-route": "^1.6.4",
         "angular-aria": "~1.4.7",
-        "jquery": "2.2.4",
-        "jquery-ui": "*",
+        "fontawesome": "4.*",
+        "bootstrap-sass": "3.*",
+        "bootstrap-toggle": "~2.2.0",
+        "ng-tasty": "^0.6.1",
+        "jquery": "3.*",
         "highcharts": "^5.0.3"
     },
     "resolutions": {
-        "angular": "1.5.*",
-        "jquery": "2.2.4"
+        "angular": "1.6.*",
+        "jquery": "3.*"
     }
 }
