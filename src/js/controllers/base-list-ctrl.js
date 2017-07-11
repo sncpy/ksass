@@ -5,8 +5,13 @@
  * @name gfd.controller#LoteListCtrl
  * @author <a href = "mailto:maximiliano.baez@konecta.com.py"> Maximiliano Báez </a>
  */
-app.controller('BaseListCtrl', ['$scope',
-    function ($scope, service) {
+app.controller('BaseListCtrl', ['$scope','$location',
+    function ($scope, $location, service) {
+
+        /**
+         * 
+         */
+        $scope.path = $location.$$path;
 
         $scope.loading = true;
         /**

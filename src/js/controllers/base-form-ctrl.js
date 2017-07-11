@@ -8,6 +8,8 @@
 app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout', '$location',
     function ($scope, $routeParams, $timeout, $location) {
 
+        $scope.path = "/" +$location.$$path.split("/")[1] + "/";
+
         /**
          * Url base del formulario
          * @field

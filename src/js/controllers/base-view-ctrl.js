@@ -5,9 +5,10 @@
  * @name gfd.controller#LoteFormCtrl
  * @author <a href = "mailto:maximiliano.baez@konecta.com.py"> Maximiliano Báez </a>
  */
-app.controller('BaseViewCtrl', ['$scope', '$routeParams', '$timeout',
-    function ($scope, $routeParams, $timeout) {
+app.controller('BaseViewCtrl', ['$scope', '$routeParams', '$timeout', '$location',
+    function ($scope, $routeParams, $timeout, $location) {
 
+        $scope.path = "/" +$location.$$path.split("/")[1] + "/";    
 
         /**
          * Service utilizdo para recuperar los datos y realizar las operaciones.
