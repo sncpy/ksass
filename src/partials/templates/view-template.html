@@ -1,0 +1,35 @@
+<!-- @autor:juan benitez   @mail:juan.benitez@konecta.com.py -->
+<div>
+    <br/>
+    <div class="wizard">
+        <ul class="wizard-breadcrumbs">
+            <li>
+                <a href="#!{{uri}}">Empresas</a>
+            </li>
+            <li class="active">
+                <a>{{recurso.nombre}} <span class="badge">2</span></a>
+            </li>
+        </ul>
+    </div>
+
+    <br/>
+
+    <section class="form-wrapper">
+        <div class="top-block">
+            <h2 class="title-top" ng-transclude="titulo">Cambiar Titulo</h2>
+            <p ng-transclude="descripcion">Cambiar Descripcion</p>
+        </div>
+
+        <form class="wrapper form-horizontal" role="form">
+            <dl class="dl-horizontal" ng-transclude="view">
+                
+            </dl>
+            <hr>
+        </form>
+
+        <hr/>
+        <a href="#!{{uri}}" class="btn btn-default">
+            <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
+        </a>
+    </section>
+</div>

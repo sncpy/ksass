@@ -1,0 +1,36 @@
+<!-- @autor:juan benitez   @mail:juan.benitez@konecta.com.py -->
+<div class="col-md-12">
+    <br/>
+    <div class="wizard">
+        <ul class="wizard-breadcrumbs">
+            <li class="active">
+                <a ng-transclude="breadcrumb"></a>
+            </li>
+        </ul>
+    </div>
+    <br/>
+    <nav class="col-md-3 ">
+        <div class="form-wrapper">
+            <div class="top-block">
+                <h2 class="title-top ">Filtros</h2>
+                <p>Criterios de búsqueda.</p>
+            </div>
+            <div class="form">
+                <div ng-transclude="filtros"></div>
+                <hr>
+                <a class="btn btn-default" ng-click="limpiar()"><i class="fa fa-ban"></i>&nbsp;Limpiar</a>
+            </div>
+        </div>
+    </nav>
+    <section class="col-md-9 ">
+        <section class="form-wrapper">
+            <div class="top-block">
+                <h2 class="title-top" ng-transclude="titulo">Cambiar Titulo</h2>
+                <p ng-transclude="descripcion">Cambiar descripcion</p>
+            </div>
+            <div ng-transclude="tabla"></div>
+            <hr/>
+            <a class="btn btn-default" href="#!/{{config.recurso}}/crear"><i class="fa fa-plus"></i> Agregar</a>
+        </section>
+    </section>
+</div>
