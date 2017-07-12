@@ -25,12 +25,7 @@
             <div class="wrapper table-responsive" tasty-table="" bind-resource-callback="getResource " bind-init="init "
                 bind-filters="filterBy ">
                 <table class="table table-striped">
-                    <thead tasty-thead=""></thead>
-                    <tbody ng-if="loading == false">
-                        <tr>
-                            <td class="no-padding" colspan="{{config.header.length}}" ng-transclude="tabla"></td>
-                        </tr>
-                    </tbody>
+                    <div ng-transclude="tabla"></div>
                     <tfoot>
                         <tr ng-if="loading == true">
                             <td colspan="{{config.header.length}}">
