@@ -9,7 +9,7 @@ app.controller('BaseListCtrl', ['$scope','$location',
     function ($scope, $location, service) {
 
         /**
-         * 
+         *
          */
         $scope.path = $location.$$path;
 
@@ -55,7 +55,7 @@ app.controller('BaseListCtrl', ['$scope','$location',
         * Elimina los elementos del objeto que son nulos
         * @function
         */
-        $scope.deleteUndefinedValues = function deleteUndefinedValues(object) {
+        $scope.deleteUndefinedValues = function (object) {
             for (var key in object){
                 if (!object[key]) {
                     delete object[key];
@@ -84,8 +84,9 @@ app.controller('BaseListCtrl', ['$scope','$location',
         $scope.getResource = function (params, paramsObj) {
             paramsObj.sortOrder = paramsObj.sortOrder == 'dsc' ? "DESC" : "ASC";
             $scope.loading = true;
-            if (paramsObj.filters)
-                deleteUndefinedValues(paramsObj.filters);
+            if (paramsObj.filters){
+                $scope.deleteUndefinedValues(paramsObj.filters);
+            }
             return this.service.listar(paramsObj)
                 .then(function (response) {
                     $scope.loading = false;
