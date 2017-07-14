@@ -23,7 +23,11 @@
         <section class="wrapper form-horizontal" role="form">
             <div ng-transclude="form"></div>
             <hr>
-            <a class="btn btn-primary" ng-click="guardar()"><i class="fa fa-floppy-o"></i>&nbsp;Guardar</a>
+            <button type="button" class="btn btn-primary" 
+                ng-disabled="disabledButtonSave" 
+                ng-click="guardar()">
+                <i class="fa fa-floppy-o"></i>&nbsp;{{!disabledButtonSave ? 'Guardar' : 'En Proceso...'}}
+            </button>
         </section>
 
         <hr/>
