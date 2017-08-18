@@ -14,6 +14,12 @@ app.controller('BaseListCtrl', ['$scope','$location',
         $scope.path = $location.$$path;
 
         $scope.loading = true;
+
+        /**
+         * Inicializacion de objeto
+         */
+        $scope.filterBy = {};
+
         /**
          * @field
          * Parametros de configuración de la grilla
@@ -89,13 +95,19 @@ app.controller('BaseListCtrl', ['$scope','$location',
             }
             return this.service.listar(paramsObj)
                 .then(function (response) {
+                    console.log(response);
                     $scope.loading = false;
                     $scope.config.rows = response.data.rows;
                     $scope.config.pagination.size = response.data.count;
                     $scope.config.pagination.pages = Math.ceil(response.data.total / $scope.config.pagination.count);
                     return $scope.config;
-                }, function(){
+                }).catch(function(response){
+                    console.error(response);
                     $scope.loading = null;
+                    $scope.config.rows = [];
+                    $scope.config.pagination.size =0;
+                    $scope.config.pagination.pages=0;
+                    return $scope.config;
                 });
         };
 
