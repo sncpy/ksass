@@ -39,9 +39,8 @@ app.service('BaseService', ['$http', function ($http) {
          * @function
          */
         obtener: function (params) {
-            return $http.get(App.REST_BASE + this.recurso + params.id, {
-                params: params
-            });
+            return $http.get(App.REST_BASE + this.recurso  + 
+                '?keyParam= ' + encodeURIComponent(JSON.stringify(params)), {});
         },
 
         /**

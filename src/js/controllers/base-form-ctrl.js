@@ -89,7 +89,7 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout', '$location
         $scope.guardarSuccess = function (response) {
             $scope.disabledButtonSave = false;
             Message.ok("El registro se ha registrado exitosamente.");
-            $location.url($scope.uri + response.data.id + "/ver");
+            $location.url($scope.uri);
         };
 
         /**
@@ -97,7 +97,7 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout', '$location
          * de edición.
          */
         $scope.getRecurso = function () {
-            this.service.obtener($routeParams)
+            this.service.obtener($routeParams.id)
                 .then(function (response) {
                     $scope.recurso = response.data;
                 },function (data, code) {
