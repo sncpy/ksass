@@ -1,38 +1,24 @@
 <!-- @autor:juan benitez   @mail:juan.benitez@konecta.com.py -->
-<div>
+<div class="col-md-12">
     <br/>
-    <div class="wizard">
-        <ul class="wizard-breadcrumbs">
-            <li>
-                <a href="#!{{path}}" ng-transclude="titulo">Cambiar Titulo</a>
-            </li>
-            <li class="active">
-                <a>{{recurso.nombre}} <span class="badge">2</span></a>
-            </li>
-        </ul>
-    </div>
-
-    <br/>
-
-    <section class="form-wrapper">
-        <div class="top-block">
-            <h2 class="title-top" ng-transclude="titulo">Cambiar Titulo</h2>
-            <p ng-transclude="descripcion">Cambiar descripcion</p>
-        </div>
-
-        <section class="wrapper form-horizontal" role="form">
-            <div ng-transclude="form"></div>
-            <hr>
-            <button type="button" class="btn btn-primary" 
-                ng-disabled="disabledButtonSave" 
-                ng-click="guardar()">
+    <breadcrumb-directive></breadcrumb-directive>
+    <section class="col-md-12">
+        <section class="form-wrapper">
+            <div class="top-block">
+                <h2 class="title-top" ng-transclude="titulo">Cambiar Titulo</h2>
+                <p ng-transclude="descripcion">Cambiar descripcion</p>
+            </div>
+            <section class="wrapper form-horizontal" role="form">
+                <div ng-transclude="form"></div>
+                <hr>
+                <button type="button" class="btn btn-primary" ng-disabled="disabledButtonSave" ng-click="guardar()">
                 <i class="fa fa-floppy-o"></i>&nbsp;{{!disabledButtonSave ? 'Guardar' : 'En Proceso...'}}
             </button>
-        </section>
-
-        <hr/>
-        <a href="#!{{path}}" class="btn btn-default">
+            </section>
+            <hr/>
+            <a href="#!{{path}}" class="btn btn-default">
             <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
         </a>
+        </section>
     </section>
 </div>

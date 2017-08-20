@@ -1,10 +1,7 @@
 <!-- @autor:juan benitez   @mail:juan.benitez@konecta.com.py -->
-<div class="col-md-12"><br>
-    <div class="wizard">
-        <ul class="wizard-breadcrumbs">
-            <li class="active"><a ng-transclude="breadcrumb"></a></li>
-        </ul>
-    </div><br>
+<div class="col-md-12">
+    <br>
+    <breadcrumb-directive></breadcrumb-directive>
     <nav class="col-md-3">
         <div class="form-wrapper">
             <div class="top-block">
@@ -41,6 +38,6 @@
                 </table>
                 <div class="tasty-pagination-responsive" tasty-pagination=""></div>
             </div>
-            <hr><a class="btn btn-default" href="#!{{path}}crear"><i class="fa fa-plus"></i> Agregar</a></section>
+            <hr><a class="btn btn-default" href="#!{{path}}/crear"><i class="fa fa-plus"></i> Agregar</a></section>
     </section>
 </div>
