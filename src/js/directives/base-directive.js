@@ -10,7 +10,6 @@ app.directive('listaDirective', function () {
     return {
         restrict: 'E',
         transclude: {
-            'breadcrumb': 'breadcrumb',
             'filtros': 'filtros',
             'titulo': 'titulo',
             'descripcion': 'descripcion',
