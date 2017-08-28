@@ -29,7 +29,8 @@ app.controller('BaseViewCtrl', ['$scope', '$routeParams', '$timeout', '$location
          * de edición.
          */
         $scope.getRecurso = function () {
-            $scope.service.obtener($routeParams)
+            console.log($routeParams);
+            $scope.service.obtener($routeParams.id)
             .then(function (response) {
                     $scope.recurso = response.data;
                 },function (data, code) {

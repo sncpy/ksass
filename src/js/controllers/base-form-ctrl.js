@@ -11,6 +11,11 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout', '$location
         $scope.path = "/" +$location.$$path.split("/")[1] + "/";
 
         /**
+         * Variable que se utiliza para desabilitar botones
+         */
+        $scope.disabledButtonSave = false;
+
+        /**
          * Url base del formulario
          * @field
          * @type {Object}
@@ -55,9 +60,11 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout', '$location
          * de edición.
          */
         $scope.crearRecurso = function () {
+            $scope.disabledButtonSave = true;
             this.service.crear($scope.recurso)
                 .then(this.guardarSuccess
                 , function (data, code) {
+                    $scope.disabledButtonSave = false;
                     Message.error("No se pudo realizar la operación");
                 });
         };
@@ -66,9 +73,11 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout', '$location
          * Se encarga de actualizar los datos del recurso.
          */
         $scope.editarRecurso = function () {
+            $scope.disabledButtonSave = true;
             return this.service.actualizar($scope.recurso)
                 .then(this.guardarSuccess
                 , function (data, code) {
+                    $scope.disabledButtonSave = false;
                     Message.error("No se pudo realizar la operación");
                 });
         };
@@ -78,8 +87,9 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout', '$location
          * @param {object} data la respuesta de la petición
          */
         $scope.guardarSuccess = function (response) {
+            $scope.disabledButtonSave = false;
             Message.ok("El registro se ha registrado exitosamente.");
-            $location.url($scope.uri + response.data.id + "/ver");
+            $location.url($scope.uri);
         };
 
         /**
@@ -87,7 +97,7 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout', '$location
          * de edición.
          */
         $scope.getRecurso = function () {
-            this.service.obtener($routeParams)
+            this.service.obtener($routeParams.id)
                 .then(function (response) {
                     $scope.recurso = response.data;
                 },function (data, code) {
