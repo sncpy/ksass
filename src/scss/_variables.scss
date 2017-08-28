@@ -4,18 +4,18 @@
 * Colores base
 */
 
-$text-color: #333538;
-$text-invert-color: #fff;
-$pane-bg:#a94442; //#A71F2A;
-$pane-active-bg:#98252f;
-$pane-border:#873635;
+$text-color: #333538 !default;
+$text-invert-color: #fff !default;
+$pane-bg:#a94442 !default; //#A71F2A;
+$pane-active-bg: darker($pane-bg, 5%); //#98252f;
+$pane-border: darker($pane-bg, 30%); //#873635;
 $pane-color:$text-invert-color;
-$pane-invert-bg:#222;
-$pane-invert-active-bg:#1a1a1a;
-$pane-invert-border:#1e1e1e;
-$pane-gray-bg:#f4f4f4;
-$pane-gray-color:#868b91;
-$pane-gray-border:#dce1e8;
+$pane-invert-bg:#222 !default;
+$pane-invert-active-bg:#1a1a1a !default;
+$pane-invert-border:#1e1e1e !default;
+$pane-gray-bg:#f4f4f4 !default;
+$pane-gray-color:#868b91 !default;
+$pane-gray-border:#dce1e8 !default;
 $active-color: $pane-bg; //#465f6e;
 $active-border: $pane-border; //#27404d;
 
@@ -26,10 +26,10 @@ $active-border: $pane-border; //#27404d;
 $brand-primary:$pane-bg;
 $link-color:$text-color;
 $link-hover-color:$text-invert-color;
-$brand-success: #5cb85c;
-$brand-info: #5bc0de;
-$brand-warning: #f0ad4e;
-$brand-danger: #d9534f;
+$brand-success: #5cb85c !default;
+$brand-info: #5bc0de !default;
+$brand-warning: #f0ad4e !default;
+$brand-danger: #d9534f !default;
 //se seobrescriben los colores de boostrap
 //override navbar 
 $navbar-default-bg:$pane-bg;
@@ -56,8 +56,8 @@ $sidebar-active-bg:$pane-active-bg;
 * override table
 */
 
-$table-bg-accent: #fff1f1;
-$table-border-color:#efc9c9;
+$table-bg-accent: lighten($pane-bg, 49%); //#fff1f1;
+$table-border-color: lighten($pane-bg, 39%); //#efc9c9;
 
 /*
 *pagination
