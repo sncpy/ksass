@@ -22,8 +22,5 @@
         "grunt-remove": "~0.1.0",
         "grunt-string-replace": "~1.2.0",
         "matchdep": "*"
-    },
-    "scripts": {
-        "postinstall": "bower install"
     }
 }
