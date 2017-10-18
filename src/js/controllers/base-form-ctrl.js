@@ -8,7 +8,7 @@
 app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout', '$location',
     function ($scope, $routeParams, $timeout, $location) {
 
-        $scope.path = "/" +$location.$$path.split("/")[1] + "/";
+        $scope.path = "";//"/" +$location.$$path.split("/")[1] + "/";
 
         /**
          * Variable que se utiliza para desabilitar botones
@@ -106,6 +106,19 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout', '$location
         };
 
         /**
+         * @private
+         * ESta función se encarga de calcular el path del recurso para urls
+         * compuestas
+         */
+        function initPath(){
+            var tokens = $location.$$path.split("/");
+            var index = $scope.isCrear()? tokens.length -1 :tokens.length-2;
+            for(var i=0;i<index;i++){
+                $scope.path += tokens[i] +"/";
+            }
+        }
+
+        /**
          * Constructor / Entrypoint
          * @constructor
          */
@@ -113,6 +126,7 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout', '$location
             if (!$scope.isCrear()) {
                 $scope.getRecurso();
             }
+            initPath();
         })();
     }
 ]);
