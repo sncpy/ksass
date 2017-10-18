@@ -1,5 +1,5 @@
 <!-- @autor:juan benitez   @mail:juan.benitez@konecta.com.py -->
-<div class="col-md-12">
+<div class="row">
     <br/>
     <breadcrumb-directive></breadcrumb-directive>
     <section class="col-md-12">
@@ -12,13 +12,13 @@
                 <div ng-transclude="form"></div>
                 <hr>
                 <button type="button" class="btn btn-primary" ng-disabled="disabledButtonSave" ng-click="guardar()">
-                <i class="fa fa-floppy-o"></i>&nbsp;{{!disabledButtonSave ? 'Guardar' : 'En Proceso...'}}
-            </button>
+                    <i class="fa fa-floppy-o"></i>&nbsp;{{!disabledButtonSave ? 'Guardar' : 'En Proceso...'}}
+                </button>
             </section>
             <hr/>
             <a href="#!{{path}}" class="btn btn-default">
-            <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
-        </a>
+                <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
+            </a>
         </section>
     </section>
 </div>
