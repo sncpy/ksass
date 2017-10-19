@@ -1,6 +1,6 @@
 {
     "name": "ksass",
-    "version": "v0.0.1",
+    "version": "v0.0.2",
     "author": "Maximiliano Báez González <maximiliano.baez@konecta.com.py>",
     "description": "Template SASS/CSS para aplicaciones de konecta",
     "private": true,
