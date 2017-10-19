@@ -15,6 +15,8 @@ app.controller('BaseListCtrl', ['$scope','$location',
 
         $scope.loading = true;
 
+        $scope.footer = true;
+
         /**
          * Inicializacion de objeto
          */
