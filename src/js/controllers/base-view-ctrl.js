@@ -29,7 +29,6 @@ app.controller('BaseViewCtrl', ['$scope', '$routeParams', '$timeout', '$location
          * de edición.
          */
         $scope.getRecurso = function () {
-            console.log($routeParams);
             $scope.service.obtener($routeParams.id)
             .then(function (response) {
                     $scope.recurso = response.data;
@@ -37,6 +36,7 @@ app.controller('BaseViewCtrl', ['$scope', '$routeParams', '$timeout', '$location
                     Message.error("No se pudo realizar la operación");
                 });
         };
+        
         /**
          * @private
          * ESta función se encarga de calcular el path del recurso para urls

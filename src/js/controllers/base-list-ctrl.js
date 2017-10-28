@@ -12,9 +12,13 @@ app.controller('BaseListCtrl', ['$scope','$location',
          *
          */
         $scope.path = $location.$$path;
-
+        /**
+        * Maneja el estado de loading de la grilla
+        */
         $scope.loading = true;
-
+        /**
+        * Determina si se va mostrar no no el footer de la lista.
+        */
         $scope.footer = true;
 
         /**

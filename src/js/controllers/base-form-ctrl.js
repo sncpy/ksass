@@ -8,7 +8,7 @@
 app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout', '$location',
     function ($scope, $routeParams, $timeout, $location) {
 
-        $scope.path = "";//"/" +$location.$$path.split("/")[1] + "/";
+        $scope.path = ""; //"/" +$location.$$path.split("/")[1] + "/";
 
         /**
          * Variable que se utiliza para desabilitar botones
@@ -62,11 +62,16 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout', '$location
         $scope.crearRecurso = function () {
             $scope.disabledButtonSave = true;
             this.service.crear($scope.recurso)
-                .then(this.guardarSuccess
-                , function (data, code) {
-                    $scope.disabledButtonSave = false;
-                    Message.error("No se pudo realizar la operación");
-                });
+                .then(this.guardarSuccess, this.crearRecursoError);
+        };
+        
+        /**
+         * Se encarga de mostrar el mesnaje que ocurre al editar el recurso.
+         *
+         */
+        $scope.crearRecursoError = function (data) {
+            $scope.disabledButtonSave = false;
+            Message.error("No se pudo realizar la operación");
         };
 
         /**
@@ -75,11 +80,16 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout', '$location
         $scope.editarRecurso = function () {
             $scope.disabledButtonSave = true;
             return this.service.actualizar($scope.recurso)
-                .then(this.guardarSuccess
-                , function (data, code) {
-                    $scope.disabledButtonSave = false;
-                    Message.error("No se pudo realizar la operación");
-                });
+                .then(this.guardarSuccess, this.editarRecursoError);
+        };
+
+        /**
+         * Se encarga de mostrar el mesnaje que ocurre al editar el recurso.
+         *
+         */
+        $scope.editarRecursoError = function (data) {
+            $scope.disabledButtonSave = false;
+            Message.error("No se pudo realizar la operación");
         };
 
         /**
@@ -100,9 +110,15 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout', '$location
             this.service.obtener($routeParams.id)
                 .then(function (response) {
                     $scope.recurso = response.data;
-                },function (data, code) {
-                    Message.error("No se pudo realizar la operación");
-                });
+                }, $scope.getRecursoError);
+        };
+
+        /**
+         * Se encarga de mostrar el mensaje de error al recuperar el recurso.
+         * @param {[[Type]]} data [[Description]]
+         */
+        $scope.getRecursoError = function (data) {
+            Message.error("No se pudo realizar la operación");
         };
 
         /**
@@ -110,11 +126,11 @@ app.controller('BaseFormCtrl', ['$scope', '$routeParams', '$timeout', '$location
          * ESta función se encarga de calcular el path del recurso para urls
          * compuestas
          */
-        function initPath(){
+        function initPath() {
             var tokens = $location.$$path.split("/");
-            var index = $scope.isCrear()? tokens.length -1 :tokens.length-2;
-            for(var i=0;i<index;i++){
-                $scope.path += tokens[i] +"/";
+            var index = $scope.isCrear() ? tokens.length - 1 : tokens.length - 2;
+            for (var i = 0; i < index; i++) {
+                $scope.path += tokens[i] + "/";
             }
         }
 
