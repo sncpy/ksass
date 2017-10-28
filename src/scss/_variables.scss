@@ -4,13 +4,15 @@
 * Colores base
 */
 
+$main-color: #e0605b !default;
+//colores
 $text-color: #333538 !default;
 $text-invert-color: #fff !default;
-$pane-bg:#a94442 !default; //#A71F2A;
+$pane-bg:$main-color !default; //#A71F2A;
 $pane-active-bg: darken($pane-bg, 5%) !default; //#98252f;
 $pane-border: darken($pane-bg, 10%) !default; //#873635;
 $pane-color:$text-invert-color !default;
-$pane-invert-bg:#222 !default ;
+$pane-invert-bg:#222 !default;
 $pane-invert-active-bg:#1a1a1a !default;
 $pane-invert-border:#1e1e1e !default;
 $pane-gray-bg:#f4f4f4 !default;
@@ -32,46 +34,46 @@ $brand-warning: #f0ad4e !default;
 $brand-danger: #d9534f !default;
 //se seobrescriben los colores de boostrap
 //override navbar
-$navbar-default-bg:$pane-bg;
-$navbar-default-active-bg:$pane-active-bg;
-$navbar-default-border: $pane-border;
-$navbar-default-color:$text-invert-color;
-$navbar-default-link-active-bg:$navbar-default-active-bg;
-$navbar-default-link-hover-bg:$navbar-default-active-bg;
-$navbar-default-link-color:$navbar-default-color;
-$navbar-default-brand-color:$navbar-default-color;
-$navbar-default-link-active-color:$navbar-default-color;
-$navbar-default-link-hover-color:$navbar-default-color;
-$navbar-default-toggle-icon-bar-bg:$navbar-default-color;
+$navbar-default-bg:$pane-bg !default;
+$navbar-default-active-bg:$pane-active-bg !default;
+$navbar-default-border: $pane-border !default;
+$navbar-default-color:$text-invert-color !default;
+$navbar-default-link-active-bg:$navbar-default-active-bg !default;
+$navbar-default-link-hover-bg:$navbar-default-active-bg !default;
+$navbar-default-link-color:$navbar-default-color !default;
+$navbar-default-brand-color:$navbar-default-color !default;
+$navbar-default-link-active-color:$navbar-default-color !default;
+$navbar-default-link-hover-color:$navbar-default-color !default;
+$navbar-default-toggle-icon-bar-bg:$navbar-default-color !default;
 
 /**
 * sidebar colors
 */
 
-$sidebar-bg:$pane-invert-bg;
-$sidebar-color:$text-invert-color;
-$sidebar-active-bg:$pane-active-bg;
+$sidebar-bg:$pane-invert-bg !default;
+$sidebar-color:$text-invert-color !default;
+$sidebar-active-bg:$pane-active-bg !default;
 
 /**
 * override table
 */
 
-$table-bg-accent: lighten($pane-bg, 49%); //#fff1f1;
-$table-border-color: lighten($pane-bg, 39%); //#efc9c9;
+$table-bg-accent: lighten($pane-bg, 35%) !default; //#fff1f1;
+$table-border-color: lighten($pane-bg, 20%) !default; //#efc9c9;
 
 /*
 *pagination
 */
 
-$pagination-color: $text-color;
-$pagination-bg: $text-invert-color;
-$pagination-border: $table-border-color;
-$pagination-hover-color: $link-hover-color;
-$pagination-hover-bg: $navbar-default-bg;
-$pagination-hover-border: $navbar-default-border;
-$pagination-active-color: $text-invert-color;
-$pagination-active-bg: $brand-primary;
-$pagination-active-border: $brand-primary;
+$pagination-color: $text-color !default;
+$pagination-bg: $text-invert-color !default;
+$pagination-border: $table-border-color !default;
+$pagination-hover-color: $link-hover-color !default;
+$pagination-hover-bg: $navbar-default-bg!default;
+$pagination-hover-border: $navbar-default-border !default;
+$pagination-active-color: $text-invert-color !default;
+$pagination-active-bg: $brand-primary !default;
+$pagination-active-border: $brand-primary !default;
 
 /**
 * Alerts

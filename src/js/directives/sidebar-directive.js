@@ -48,8 +48,6 @@ app.directive('sideNav', [function () {
                 var $page = $(".page-wrapper");
                 var clazz = "compress";
 
-
-
                 /*
                  * Si se clickea el boton del sidebar, se colapsa o comprime
                  * los elementos para mostar una versión reducida o extendida del
