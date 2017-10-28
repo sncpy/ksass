@@ -105,6 +105,12 @@ ul.alert-dropdown {
         left: 178px;
     }
 }
+//viste normal
+.no-compress {
+    &.page-wrapper {
+        padding-left: 15px;
+    }
+}
 //para la vista reducida
 .compress {
     &.page-wrapper {
