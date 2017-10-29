@@ -44,7 +44,8 @@ thead[tasty-thead] {
         }
     }
 }
-.tasty-pagination-responsive {
+.tasty-pagination-responsive,
+tasty-pagination {
     .row {
         .col-xs-3.text-right {
             display: none
