@@ -53,6 +53,7 @@ $navbar-default-toggle-icon-bar-bg:$navbar-default-color !default;
 $sidebar-bg:$pane-invert-bg !default;
 $sidebar-color:$text-invert-color !default;
 $sidebar-active-bg:$pane-active-bg !default;
+$sidebar-hover-bg:lighten($pane-invert-bg, 25%) !default;
 
 /**
 * override table
