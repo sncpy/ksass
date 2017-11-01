@@ -81,12 +81,22 @@ app.controller('BaseListCtrl', ['$scope','$location',
          */
         $scope.eliminar = function (recurso) {
             if (window.confirm("¿Está seguro de eliminar el recurso?"))
-                service.eliminar(recurso)
-                .then(function (data) {
-                    $scope.limpiar();
-                }).catch(function (data, code) {
-                    Message.error("No se pudo realizar la operación");
-                });
+                service.eliminar($scope.getPrimaryKey(recurso))
+                    .then(function (data) {
+                        $scope.limpiar();
+                    }).catch(function (data, code) {
+                        Message.error("No se pudo realizar la operación");
+                    });
+        };
+
+        /**
+         * Retorna el primary key del recurso
+         * Por defecto el atributo id
+         * Puede ser sobreescrito en el controlador del recurso 
+         * @function
+         */
+        $scope.getPrimaryKey = function(recurso){
+            return recurso.id;
         };
 
         /**
