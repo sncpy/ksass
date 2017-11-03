@@ -6,7 +6,7 @@
  * @author <a href = "mailto:maximiliano.baez@konecta.com.py"> Maximiliano Báez </a>
  */
 app.controller('BaseListCtrl', ['$scope','$location',
-    function ($scope, $location, service) {
+    function ($scope, $location) {
 
         /**
          *
@@ -81,12 +81,17 @@ app.controller('BaseListCtrl', ['$scope','$location',
          */
         $scope.eliminar = function (recurso) {
             if (window.confirm("¿Está seguro de eliminar el recurso?"))
-                service.eliminar($scope.getPrimaryKey(recurso))
-                    .then(function (data) {
-                        $scope.limpiar();
-                    }).catch(function (data, code) {
-                        Message.error("No se pudo realizar la operación");
-                    });
+                this.service.eliminar(this.getPrimaryKey(recurso))
+                    .then(eliminarRecursoSuccess, eliminarRecursoError);
+        };
+
+        function eliminarRecursoSuccess (response) {
+            Message.ok("El registro se ha eliminado exitosamente.");
+            $location.url($scope.path);
+        }
+
+        function eliminarRecursoError (data) {
+            Message.error("No se pudo realizar la operación");
         };
 
         /**
