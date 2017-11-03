@@ -53,7 +53,6 @@ app.directive('breadcrumbDirective', function () {
                 }
             }
             $scope.breadcrumbs = result;
-            console.log($scope.breadcrumbs);
         }
     }
 });
