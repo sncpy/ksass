@@ -10,15 +10,19 @@
             </div>
             <section class="wrapper form-horizontal" role="form">
                 <div ng-transclude="form">Agregar Form</div>
-                <hr>
-                <button type="button" class="btn btn-primary" ng-disabled="disabledButtonSave" ng-click="guardar()">
-                    <i class="fa fa-floppy-o"></i>&nbsp;{{!disabledButtonSave ? 'Guardar' : 'En Proceso...'}}
-                </button>
+                <div ng-transclude="buttonSubmit">
+                    <hr>
+                    <button type="button" class="btn btn-primary" ng-disabled="disabledButtonSave" ng-click="guardar()">
+                        <i class="fa fa-floppy-o"></i>&nbsp;{{!disabledButtonSave ? 'Guardar' : 'En Proceso...'}}
+                    </button>
+                </div>
             </section>
+            <div ng-transclude="footerForm">
+                <a href="#!{{path}}" class="btn btn-default">
+                    <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
+                </a>
+            </div>
             <hr/>
-            <a href="#!{{path}}" class="btn btn-default">
-                <i class="fa fa-mail-reply" aria-hidden="true"></i> Atras
-            </a>
         </section>
     </section>
 </div>
