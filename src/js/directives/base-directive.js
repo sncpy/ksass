@@ -10,10 +10,11 @@ app.directive('listaDirective', function () {
     return {
         restrict: 'E',
         transclude: {
-            'filtros': 'filtros',
-            'titulo': 'titulo',
-            'descripcion': 'descripcion',
-            'tabla': 'tabla'
+            'filtros': '?filtros',
+            'titulo': '?titulo',
+            'descripcion': '?descripcion',
+            'tabla': '?tabla',
+            'footerTabla':'?footerTabla'
         },
         replace: true,
         templateUrl: '../partials/templates/list-template.html'
@@ -27,9 +28,9 @@ app.directive('formDirective', function () {
     return {
         restrict: 'E',
         transclude: {
-            'titulo': 'titulo',
-            'descripcion': 'descripcion',
-            'form': 'form'
+            'titulo': '?titulo',
+            'descripcion': '?descripcion',
+            'form': '?form'
         },
         replace: true,
         templateUrl: '../partials/templates/form-template.html'
@@ -43,9 +44,9 @@ app.directive('viewDirective', function () {
     return {
         restrict: 'E',
         transclude: {
-            'titulo': 'titulo',
-            'descripcion': 'descripcion',
-            'view': 'view'
+            'titulo': '?titulo',
+            'descripcion': '?descripcion',
+            'view': '?view'
         },
         replace: true,
         templateUrl: '../partials/templates/view-template.html'

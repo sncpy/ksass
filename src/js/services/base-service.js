@@ -48,7 +48,8 @@ app.service('BaseService', ['$http', function ($http) {
          * @function
          */
         eliminar: function (params) {
-            return $http.delete(App.REST_BASE + this.recurso + params.id);
+            return $http.delete(App.REST_BASE + this.recurso + 
+                '?id= ' + encodeURIComponent(JSON.stringify(params)));
         }
     }
 }]);
