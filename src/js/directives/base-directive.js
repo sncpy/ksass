@@ -30,7 +30,9 @@ app.directive('formDirective', function () {
         transclude: {
             'titulo': '?titulo',
             'descripcion': '?descripcion',
-            'form': '?form'
+            'form': '?form',
+            'buttonSubmit':'?buttonSubmit',
+            'footerForm':'?footerForm'
         },
         replace: true,
         templateUrl: '../partials/templates/form-template.html'
