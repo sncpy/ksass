@@ -119,7 +119,7 @@ app.controller('BaseListCtrl', ['$scope','$location',
                     $scope.loading = false;
                     $scope.config.rows = response.data.rows;
                     $scope.config.pagination.size = response.data.count;
-                    $scope.config.pagination.pages = Math.ceil(response.data.total / $scope.config.pagination.count);
+                    $scope.config.pagination.pages = Math.ceil(response.data.count / $scope.config.pagination.count);
                     return $scope.config;
                 }).catch(function(response){
                     $scope.loading = null;
