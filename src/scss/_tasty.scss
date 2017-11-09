@@ -36,7 +36,7 @@ thead[tasty-thead] {
     .tasty-pagination-responsive {
         .row {
             .col-xs-3.text-left {
-                display: none
+                //display: none
             }
             .col-xs-6.text-center {
                 width: 100%
@@ -48,11 +48,12 @@ thead[tasty-thead] {
 tasty-pagination {
     .row {
         .col-xs-3.text-right {
-            display: none
+            //display: none
         }
     }
     .btn-group {
-        display: none;
+        margin-top: 20px;
+        //display: none;
     }
 }
 tfoot {
