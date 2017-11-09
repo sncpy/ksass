@@ -5,7 +5,7 @@
  * @name gfd.controller#LoteListCtrl
  * @author <a href = "mailto:maximiliano.baez@konecta.com.py"> Maximiliano Báez </a>
  */
-app.controller('BaseListCtrl', ['$scope','$location',
+app.controller('BaseListCtrl', ['$scope', '$location',
     function ($scope, $location) {
 
         /**
@@ -13,12 +13,12 @@ app.controller('BaseListCtrl', ['$scope','$location',
          */
         $scope.path = $location.$$path;
         /**
-        * Maneja el estado de loading de la grilla
-        */
+         * Maneja el estado de loading de la grilla
+         */
         $scope.loading = true;
         /**
-        * Determina si se va mostrar no no el footer de la lista.
-        */
+         * Determina si se va mostrar no no el footer de la lista.
+         */
         $scope.footer = true;
 
         /**
@@ -64,11 +64,11 @@ app.controller('BaseListCtrl', ['$scope','$location',
         };
 
         /**
-        * Elimina los elementos del objeto que son nulos
-        * @function
-        */
+         * Elimina los elementos del objeto que son nulos
+         * @function
+         */
         $scope.deleteUndefinedValues = function (object) {
-            for (var key in object){
+            for (var key in object) {
                 if (!object[key]) {
                     delete object[key];
                 }
@@ -82,15 +82,15 @@ app.controller('BaseListCtrl', ['$scope','$location',
         $scope.eliminar = function (recurso) {
             if (window.confirm("¿Está seguro de eliminar el recurso?"))
                 this.service.eliminar(this.getPrimaryKey(recurso))
-                    .then(eliminarRecursoSuccess, eliminarRecursoError);
+                .then(eliminarRecursoSuccess, eliminarRecursoError);
         };
 
-        function eliminarRecursoSuccess (response) {
+        function eliminarRecursoSuccess(response) {
             Message.ok("El registro se ha eliminado exitosamente.");
             $location.url($scope.path);
         }
 
-        function eliminarRecursoError (data) {
+        function eliminarRecursoError(data) {
             Message.error("No se pudo realizar la operación");
         };
 
@@ -100,7 +100,7 @@ app.controller('BaseListCtrl', ['$scope','$location',
          * Puede ser sobreescrito en el controlador del recurso 
          * @function
          */
-        $scope.getPrimaryKey = function(recurso){
+        $scope.getPrimaryKey = function (recurso) {
             return recurso.id;
         };
 
@@ -111,7 +111,9 @@ app.controller('BaseListCtrl', ['$scope','$location',
         $scope.getResource = function (params, paramsObj) {
             paramsObj.sortOrder = paramsObj.sortOrder == 'dsc' ? "DESC" : "ASC";
             $scope.loading = true;
-            if (paramsObj.filters){
+            $scope.config.pagination.page = paramsObj.page;
+            $scope.config.pagination.count = paramsObj.count;
+            if (paramsObj.filters) {
                 $scope.deleteUndefinedValues(paramsObj.filters);
             }
             return this.service.listar(paramsObj)
@@ -119,13 +121,13 @@ app.controller('BaseListCtrl', ['$scope','$location',
                     $scope.loading = false;
                     $scope.config.rows = response.data.rows;
                     $scope.config.pagination.size = response.data.count;
-                    $scope.config.pagination.pages = Math.ceil(response.data.total / $scope.config.pagination.count);
+                    $scope.config.pagination.pages = Math.ceil(response.data.count / $scope.config.pagination.count);
                     return $scope.config;
-                }).catch(function(response){
+                }, function (response) {
                     $scope.loading = null;
                     $scope.config.rows = [];
-                    $scope.config.pagination.size =0;
-                    $scope.config.pagination.pages=0;
+                    $scope.config.pagination.size = 0;
+                    $scope.config.pagination.pages = 0;
                     return $scope.config;
                 });
         };
