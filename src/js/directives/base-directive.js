@@ -4,9 +4,20 @@
  */
 
 /**
+ * Se encarga de extraer la url base del spa
+ * @param   {angular.service} $location angular location
+ * @returns {String} la url de path base del spa.
+ */
+function getSPABasePath($location) {
+    var fullPath = window.location.pathname;
+    var appPath = $location.path();
+    return fullPath.replace(appPath, "")
+};
+
+/**
  * directiva Base para las grillas con filtrado
  */
-app.directive('listaDirective', function () {
+app.directive('listaDirective', ['$location', function ($location) {
     return {
         restrict: 'E',
         transclude: {
@@ -14,35 +25,35 @@ app.directive('listaDirective', function () {
             'titulo': '?titulo',
             'descripcion': '?descripcion',
             'tabla': '?tabla',
-            'footerTabla':'?footerTabla'
+            'footerTabla': '?footerTabla'
         },
         replace: true,
-        templateUrl: '../partials/templates/list-template.html'
+        templateUrl: getSPABasePath($location) + 'partials/templates/list-template.html'
     };
-});
+}]);
 
 /**
  * Directiva Base para los formularios de carga y edición
  */
-app.directive('formDirective', function () {
+app.directive('formDirective', ['$location', function ($location) {
     return {
         restrict: 'E',
         transclude: {
             'titulo': '?titulo',
             'descripcion': '?descripcion',
             'form': '?form',
-            'buttonSubmit':'?buttonSubmit',
-            'footerForm':'?footerForm'
+            'buttonSubmit': '?buttonSubmit',
+            'footerForm': '?footerForm'
         },
         replace: true,
-        templateUrl: '../partials/templates/form-template.html'
+        templateUrl: getSPABasePath($location) + '/partials/templates/form-template.html'
     };
-});
+}]);
 
 /**
  * Directiva Base para los pantallas de visualizacion
  */
-app.directive('viewDirective', function () {
+app.directive('viewDirective', ['$location', function ($location) {
     return {
         restrict: 'E',
         transclude: {
@@ -51,6 +62,6 @@ app.directive('viewDirective', function () {
             'view': '?view'
         },
         replace: true,
-        templateUrl: '../partials/templates/view-template.html'
+        templateUrl: getSPABasePath($location) + '/partials/templates/view-template.html'
     };
-});
+}]);
