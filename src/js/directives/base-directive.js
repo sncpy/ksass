@@ -46,7 +46,7 @@ app.directive('formDirective', ['$location', function ($location) {
             'footerForm': '?footerForm'
         },
         replace: true,
-        templateUrl: getSPABasePath($location) + '/partials/templates/form-template.html'
+        templateUrl: getSPABasePath($location) + 'partials/templates/form-template.html'
     };
 }]);
 
@@ -62,6 +62,6 @@ app.directive('viewDirective', ['$location', function ($location) {
             'view': '?view'
         },
         replace: true,
-        templateUrl: getSPABasePath($location) + '/partials/templates/view-template.html'
+        templateUrl: getSPABasePath($location) + 'partials/templates/view-template.html'
     };
 }]);
