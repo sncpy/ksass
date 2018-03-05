@@ -114,6 +114,7 @@ app.controller('BaseListCtrl', ['$scope', '$location',
          * se ecnarga de reinicializar los parametros de la grilla.
          */
         $scope.noData = function () {
+            $scope.loading = null;
             $scope.config.pagination.size = 0;
             $scope.config.pagination.pages = 0;
             $scope.config.pagination.count = $scope.init.count;
@@ -144,7 +145,6 @@ app.controller('BaseListCtrl', ['$scope', '$location',
                     }
                     return $scope.config;
                 }, function (response) {
-                    $scope.loading = null;
                     $scope.noData();
                     $scope.config.rows = [];
                     return $scope.config;
