@@ -155,7 +155,7 @@ app.controller('BaseListCtrl', ['$scope', '$location',
          * Se encarga de aplicar los criterios de busqueda.
          */
         $scope.buscar = function () {
-            $scope.filterByModel = $scope.filterBy;
+            $scope.filterByModel = angular.copy($scope.filterBy);
         };
 
 
@@ -164,9 +164,7 @@ app.controller('BaseListCtrl', ['$scope', '$location',
          * @param {[[Type]]} filters [[Description]]
          */
         $scope.initFilters = function (filters) {
-            for (var key in filters) {
-                $scope.filterBy[key] = filters[key];
-            }
+            $scope.filterBy = angular.copy(filters);
             $scope.buscar();
         }
 
