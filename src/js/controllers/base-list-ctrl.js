@@ -12,6 +12,7 @@ app.controller('BaseListCtrl', ['$scope', '$location',
          *
          */
         $scope.path = $location.$$path;
+
         /**
          * Maneja el estado de loading de la grilla
          */
@@ -22,9 +23,13 @@ app.controller('BaseListCtrl', ['$scope', '$location',
         $scope.footer = true;
 
         /**
-         * Inicializacion de objeto
+         * Inicializacion de objeto que almacena los criterios de filtrado
          */
         $scope.filterBy = {};
+        /**
+         * Se inicializa la variable que aplica los filtros en la grilla.
+         */
+        $scope.filterByModel = {};
 
         /**
          * @field
@@ -44,6 +49,7 @@ app.controller('BaseListCtrl', ['$scope', '$location',
          */
         $scope.limpiar = function () {
             $scope.filterBy = {};
+            $scope.filterByModel = {};
         }
 
         /**
@@ -97,11 +103,21 @@ app.controller('BaseListCtrl', ['$scope', '$location',
         /**
          * Retorna el primary key del recurso
          * Por defecto el atributo id
-         * Puede ser sobreescrito en el controlador del recurso 
+         * Puede ser sobreescrito en el controlador del recurso
          * @function
          */
         $scope.getPrimaryKey = function (recurso) {
             return recurso.id;
+        };
+
+        /**
+         * se ecnarga de reinicializar los parametros de la grilla.
+         */
+        $scope.noData = function () {
+            $scope.config.pagination.size = 0;
+            $scope.config.pagination.pages = 0;
+            $scope.config.pagination.count = $scope.init.count;
+            $scope.config.pagination.page = $scope.init.page;
         };
 
         /**
@@ -111,8 +127,8 @@ app.controller('BaseListCtrl', ['$scope', '$location',
         $scope.getResource = function (params, paramsObj) {
             paramsObj.sortOrder = paramsObj.sortOrder == 'dsc' ? "DESC" : "ASC";
             $scope.loading = true;
-            $scope.config.pagination.page = paramsObj.page;
-            $scope.config.pagination.count = paramsObj.count;
+            $scope.config.pagination.page = paramsObj.page == 0 ? $scope.init.page : paramsObj.page;
+            $scope.config.pagination.count = paramsObj.count == 0 ? $scope.init.count : paramsObj.count;
             if (paramsObj.filters) {
                 $scope.deleteUndefinedValues(paramsObj.filters);
             }
@@ -122,15 +138,37 @@ app.controller('BaseListCtrl', ['$scope', '$location',
                     $scope.config.rows = response.data.rows;
                     $scope.config.pagination.size = response.data.count;
                     $scope.config.pagination.pages = Math.ceil(response.data.count / $scope.config.pagination.count);
+                    if (response.data.count == 0) {
+                        $scope.noData();
+                        $scope.config.rows = [{}];
+                    }
                     return $scope.config;
                 }, function (response) {
                     $scope.loading = null;
+                    $scope.noData();
                     $scope.config.rows = [];
-                    $scope.config.pagination.size = 0;
-                    $scope.config.pagination.pages = 0;
                     return $scope.config;
                 });
         };
+
+        /**
+         * Se encarga de aplicar los criterios de busqueda.
+         */
+        $scope.buscar = function () {
+            $scope.filterByModel = $scope.filterBy;
+        };
+
+
+        /**
+         * Se ecncarga de inicializar los filtros.
+         * @param {[[Type]]} filters [[Description]]
+         */
+        $scope.initFilters = function (filters) {
+            for (var key in filters) {
+                $scope.filterBy[key] = filters[key];
+            }
+            $scope.buscar();
+        }
 
 
         /**

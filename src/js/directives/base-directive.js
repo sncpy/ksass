@@ -22,16 +22,17 @@ app.directive('listaDirective', ['$location', function ($location) {
         restrict: 'E',
         transclude: {
             'filtros': '?filtros',
+            'footerFiltros': '?footerFiltros',
             'titulo': '?titulo',
             'descripcion': '?descripcion',
             'tabla': '?tabla',
             'footerTabla': '?footerTabla'
+
         },
         replace: true,
         templateUrl: getSPABasePath($location) + 'partials/templates/list-template.html'
     };
 }]);
-
 /**
  * Directiva Base para los formularios de carga y edición
  */
