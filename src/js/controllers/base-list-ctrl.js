@@ -165,14 +165,27 @@ app.controller('BaseListCtrl', ['$scope', '$location',
          */
         $scope.initFilters = function (filters) {
             $scope.filterBy = angular.copy(filters);
+            $scope.setQueryParamsFilters();
             $scope.buscar();
-        }
+        };
 
-
+        /**
+         * Este metodo se encarga de setear los filtros que son enviados vía
+         * query params.
+         */
+        $scope.setQueryParamsFilters = function () {
+            var queryParams = $location.search();
+            for (var key in queryParams) {
+                $scope.filterBy[key] = queryParams[key]
+            }
+        };
         /**
          * Constructor / Entrypoint
          * @constructor
          */
+        (function initilize() {
+            $scope.setQueryParamsFilters();
+        })()
 
     }
 ]);
