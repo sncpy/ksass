@@ -8,15 +8,20 @@
                 <h2 class="title-top" ng-transclude="titulo">Cambiar Titulo</h2>
                 <p ng-transclude="descripcion">Cambiar descripcion</p>
             </div>
-            <section class="wrapper form-horizontal" role="form">
+            <form name="baseForm" class="wrapper form-horizontal" role="form">
                 <div ng-transclude="form">Agregar Form</div>
                 <div ng-transclude="buttonSubmit">
                     <hr>
-                    <button type="button" class="btn btn-primary" ng-disabled="disabledButtonSave" ng-click="guardar()">
+
+                    <div ng-if="!baseForm.$valid" class="alert alert-warning" role="alert">
+                        <strong>Atención!!</strong> Debe completar correctamente lo campos del formulario. Todos los campos señalados con <i class="fa fa-asterisk"></i> son obligatorios.
+                    </div>
+
+                    <button ng-if="baseForm.$valid" type="button" class="btn btn-primary" ng-disabled="disabledButtonSave" ng-click="guardar()">
                         <i class="fa fa-floppy-o"></i>&nbsp;{{!disabledButtonSave ? 'Guardar' : 'En Proceso...'}}
                     </button>
                 </div>
-            </section>
+            </form>
             <div ng-transclude="footerForm">
                 <hr/>
                 <a href="#!{{path}}" class="btn btn-default">

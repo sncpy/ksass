@@ -44,11 +44,14 @@
         }
     }
 }
-
-
-.dl-horizontal{
-    dt{
+.dl-horizontal {
+    dt {
         text-align: left;
         padding-bottom: 10px;
+    }
+}
+.form-group {
+    .ng-invalid {
+        border-color: lighten($state-danger-text, 5%);
     }
 }
