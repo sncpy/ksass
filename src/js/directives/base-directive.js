@@ -22,6 +22,7 @@ app.directive('listaDirective', ['$location', function ($location) {
         restrict: 'E',
         transclude: {
             'filtros': '?filtros',
+            'configuracionClumnas': '?configuracionClumnas',
             'footerFiltros': '?footerFiltros',
             'titulo': '?titulo',
             'descripcion': '?descripcion',

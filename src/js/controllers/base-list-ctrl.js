@@ -126,6 +126,7 @@ app.controller('BaseListCtrl', ['$scope', '$location',
          * @function
          */
         $scope.getResource = function (params, paramsObj) {
+            $scope.initHeader($scope.config.header);
             paramsObj.sortOrder = paramsObj.sortOrder == 'dsc' ? "DESC" : "ASC";
             $scope.loading = true;
             $scope.config.pagination.page = paramsObj.page == 0 ? $scope.init.page : paramsObj.page;
@@ -179,6 +180,53 @@ app.controller('BaseListCtrl', ['$scope', '$location',
                 $scope.filterBy[key] = queryParams[key]
             }
         };
+        /**
+         * Se encarga de inicializar las columnas
+         * @param {*} header
+         */
+        $scope.initHeader = function (header) {
+            for (var idx in header) {
+                var key = header[idx].key
+                header[idx].class = [];
+                header[idx].class.push(key);
+                header[idx].visible = typeof header[idx].visible == "undefined" ? true : false;
+                if (header[idx].visible == false) {
+                    header[idx].class.push("tasty-head-invisible");
+                }
+            }
+            return header;
+        };
+
+        /**
+         * Se encarga de verificar si un elemento es visible o no
+         * @param {*} key
+         */
+        $scope.hasHeader = function (key) {
+            for (var idx in $scope.config.header) {
+                if ($scope.config.header[idx].key == key && $scope.config.header[idx].visible) {
+                    return true;
+                }
+            }
+            return false;
+        };
+
+        /**
+         * Se encarga de marcar una columna como visible o no
+         * @param {*} key
+         */
+        $scope.setVisible = function (key, flag) {
+            $scope.config.header.find(function (item) {
+                if (item.key == key) {
+                    item.visible = flag;
+                }
+            });
+            if (flag) {
+                $("." + key).removeClass("tasty-head-invisible");
+            } else {
+                $("." + key).addClass("tasty-head-invisible");
+            }
+        };
+
         /**
          * Constructor / Entrypoint
          * @constructor

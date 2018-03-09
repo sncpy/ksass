@@ -29,6 +29,44 @@
                 <div class="top-block">
                     <h2 class="title-top" ng-transclude="titulo">Cambiar Titulo</h2>
                     <p ng-transclude="descripcion">Cambiar descripcion</p>
+                    <section ng-transclude="configuracionClumnas">
+                        <a class="btn btn-defult" ng-init="config.verColumnas=false" ng-if="!config.verColumnas" ng-click="config.verColumnas=true">
+                            <i class="fa fa-list"></i>&nbsp;Configurar Columnas
+                        </a>
+                        <br/>
+
+                        <section class="col-md-12" ng-if="config.verColumnas">
+                            <div class="panel panel-default row">
+                                <div class="panel-body">
+                                    <p>
+                                        <i class="fa fa-info-circle"></i>&nbsp;Seleccione las columnas que desea visualizar en la lista.
+                                    </p>
+                                    <hr/>
+                                    <div class="row">
+                                        <div ng-repeat="item in config.header">
+                                            <div class="form-group col-md-4 tasty-col-filter" ng-if="item.key.length > 0">
+
+                                                <label class="col-sm-6 control-label">
+                                                    {{item.name}}
+                                                </label>
+                                                <div class="col-md-6">
+                                                    <label class="switch">
+                                                        <input type="checkbox" ng-model="item.visible" ng-change="setVisible(item.key, item.visible)">
+                                                        <div class="slider round"></div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <a class="btn btn-defult" ng-if="config.verColumnas" ng-click="config.verColumnas=false">
+                                        <i class="fa fa-eject"></i>&nbsp;Ocultar</a>
+                                </div>
+                            </div>
+                        </section>
+                        <br/>
+                    </section>
                 </div>
                 <div class="wrapper table-responsive" tasty-table="" bind-resource-callback="getResource " bind-init="init " bind-filters="filterByModel">
                     <table class="table table-striped">
