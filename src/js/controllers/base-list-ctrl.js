@@ -189,7 +189,7 @@ app.controller('BaseListCtrl', ['$scope', '$location',
                 var key = header[idx].key
                 header[idx].class = [];
                 header[idx].class.push(key);
-                header[idx].visible = typeof header[idx].visible == "undefined" ? true : false;
+                header[idx].visible = typeof header[idx].visible == "undefined" ? true : header[idx].visible;
                 if (header[idx].visible == false) {
                     header[idx].class.push("tasty-head-invisible");
                 }
