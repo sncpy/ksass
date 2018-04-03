@@ -75,7 +75,7 @@ app.controller('BaseListCtrl', ['$scope', '$location',
          */
         $scope.deleteUndefinedValues = function (object) {
             for (var key in object) {
-                if (!object[key]) {
+                if (typeof object[key] == "undefined" || object[key].length == 0) {
                     delete object[key];
                 }
             }
@@ -122,6 +122,13 @@ app.controller('BaseListCtrl', ['$scope', '$location',
         };
 
         /**
+         * Encapsula la invocación al service.
+         */
+        $scope.listar = function (paramsObjs) {
+            return this.service.listar(paramsObj);
+        };
+
+        /**
          * Se encarga de recuperar la lista paginada de los datos.
          * @function
          */
@@ -134,7 +141,7 @@ app.controller('BaseListCtrl', ['$scope', '$location',
             if (paramsObj.filters) {
                 $scope.deleteUndefinedValues(paramsObj.filters);
             }
-            return this.service.listar(paramsObj)
+            return $scope.listar(paramsObj)
                 .then(function (response) {
                     $scope.loading = false;
                     $scope.config.rows = response.data.rows;
