@@ -125,7 +125,7 @@ app.controller('BaseListCtrl', ['$scope', '$location',
          * Encapsula la invocación al service.
          */
         $scope.listar = function (paramsObjs) {
-            return this.service.listar(paramsObj);
+            return this.service.listar(paramsObjs);
         };
 
         /**
