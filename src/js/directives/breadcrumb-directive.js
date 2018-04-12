@@ -6,11 +6,22 @@
  * @author <a href="mailto:juan.benitez@konecta.com.py">Juan Benitez</a>
  */
 
-app.directive('breadcrumbDirective', function () {
+app.directive('breadcrumbDirective', ['$location', function ($location) {
+    /**
+     * Se encarga de extraer la url base del spa
+     * @param   {angular.service} $location angular location
+     * @returns {String} la url de path base del spa.
+     */
+    function getSPABasePath($location) {
+        var fullPath = window.location.pathname;
+        var appPath = $location.path();
+        return fullPath.replace(appPath, "")
+    };
+
     return {
         restrict: 'E',
         scope: true,
-        templateUrl: '../partials/templates/breadcrumb.html',
+        templateUrl: getSPABasePath($location) + 'partials/templates/breadcrumb.html',
         controller: function ($scope, $location, $route) {
             var pathElements = $location.path().split('/'),
                 result = [],
@@ -43,7 +54,7 @@ app.directive('breadcrumbDirective', function () {
                 if ($route.routes.hasOwnProperty(path)) {
                     var titulo = $route.routes[path].titulo;
                     if (titulo) {
-                        (last) ? badge = (pathId)? i-1:i: badge = null
+                        (last) ? badge = (pathId) ? i - 1 : i: badge = null
                         result.push({
                             name: $route.routes[path].titulo,
                             path: '#!' + path,
@@ -55,4 +66,4 @@ app.directive('breadcrumbDirective', function () {
             $scope.breadcrumbs = result;
         }
     }
-});
+}]);
