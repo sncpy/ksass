@@ -93,7 +93,7 @@ app.controller('BaseListCtrl', ['$scope', '$location',
 
         function eliminarRecursoSuccess(response) {
             Message.ok("El registro se ha eliminado exitosamente.");
-            $location.url($scope.path);
+            $location.url($scope.path+"/");
         }
 
         function eliminarRecursoError(data) {
