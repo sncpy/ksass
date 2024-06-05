@@ -136,9 +136,10 @@ app.controller('BaseListCtrl', [
     $scope.emptyResponse = function () {
       $scope.noData();
       $scope.config.rows = [{}];
-      var p = new Promise();
-      p.resolve($scope.config);
-      return p;
+
+      return new Promise(function (resolve, reject) {
+        resolve($scope.config);
+      });
     };
     /**
      * Se encarga de recuperar la lista paginada de los datos.
