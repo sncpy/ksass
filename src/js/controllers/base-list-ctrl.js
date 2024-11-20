@@ -151,11 +151,11 @@ app.controller('BaseListCtrl', [
       $scope.loading = true;
       $scope.config.pagination.page = paramsObj.page == 0 ? $scope.init.page : paramsObj.page;
       $scope.config.pagination.count = paramsObj.count == 0 ? $scope.init.count : paramsObj.count;
-      if (paramsObj.filters) {
-        $scope.deleteUndefinedValues(paramsObj.filters);
-      }
       if ($scope.lazy) {
         return $scope.emptyResponse();
+      }
+      if (paramsObj.filters) {
+        $scope.deleteUndefinedValues(paramsObj.filters);
       }
       return $scope.listar(paramsObj).then(
         function (response) {
