@@ -1,6 +1,6 @@
 {
   "name": "ksass",
-  "version": "v1.0.4",
+  "version": "v1.0.5",
   "author": "Maximiliano Báez González <maxibaezpy@gmail.com>",
   "description": "Template SASS/CSS para aplicaciones angularjs del SNC",
   "private": true,
