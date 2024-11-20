@@ -80,6 +80,7 @@ app.controller('BaseListCtrl', [
      * @function
      */
     $scope.deleteUndefinedValues = function (object) {
+      delete object['_'];
       for (var key in object) {
         if (typeof object[key] == 'undefined' || object[key].length == 0) {
           delete object[key];
@@ -147,13 +148,13 @@ app.controller('BaseListCtrl', [
      */
     $scope.getResource = function (params, paramsObj) {
       $scope.initHeader($scope.config.header);
+      if ($scope.lazy) {
+        return $scope.emptyResponse();
+      }
       paramsObj.sortOrder = paramsObj.sortOrder == 'dsc' ? 'DESC' : 'ASC';
       $scope.loading = true;
       $scope.config.pagination.page = paramsObj.page == 0 ? $scope.init.page : paramsObj.page;
       $scope.config.pagination.count = paramsObj.count == 0 ? $scope.init.count : paramsObj.count;
-      if ($scope.lazy) {
-        return $scope.emptyResponse();
-      }
       if (paramsObj.filters) {
         $scope.deleteUndefinedValues(paramsObj.filters);
       }
@@ -182,6 +183,7 @@ app.controller('BaseListCtrl', [
      */
     $scope.buscar = function () {
       $scope.lazy = false;
+      $scope.filterBy['_'] = new Date();
       $scope.filterByModel = angular.copy($scope.filterBy);
     };
 
