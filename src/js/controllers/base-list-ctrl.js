@@ -155,7 +155,7 @@ app.controller('BaseListCtrl', [
         $scope.deleteUndefinedValues(paramsObj.filters);
       }
       if ($scope.lazy) {
-        $scope.emptyResponse();
+        return $scope.emptyResponse();
       }
       return $scope.listar(paramsObj).then(
         function (response) {
